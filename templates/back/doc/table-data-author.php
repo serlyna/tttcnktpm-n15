@@ -146,15 +146,15 @@ $result = $connect->query($sql);
                 <th><?= $count++ ?></th>
                 <td><?php echo $row['id_author']; ?></td>
                 <td><?php echo $row['name']; ?></td>
-                <td><img src="../images/<?php echo $row['image'];?>" alt="" width="150px" height="150px"></td>
+                <td><img src="../../image/<?php echo $row['image'];?>" alt="" width="150px" height="150px"></td>
                 <td><?php echo $row['information']; ?></td>
                   
                   
                   <td class="table-td-center"><a href="form-delete-author.php?id_author=<?= $row['id_author']?>" class="btn btn-primary btn-sm trash" type="submit" value="Xóa"
                       >Xóa<i class="fas fa-trash-alt"></i>
 </a>
-                    <a class="btn btn-primary btn-sm edit" type="submit" title="Sửa" id="show-emp"
-                      data-toggle="modal" data-target="#ModalUP">Sửa<i class="fas fa-edit"></i>
+                    <a href="form-update-author.php?id_author=<?= $row['id_author']?>" class="btn btn-primary btn-sm edit" type="submit" title="Sửa"
+                      >Sửa<i class="fas fa-edit"></i>
                     </button>
                   </td>
                 </tr>
@@ -170,73 +170,7 @@ $result = $connect->query($sql);
   <!--
   MODAL
 -->
-  <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
-    data-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-
-        <div class="modal-body">
-          <div class="row">
-            <div class="form-group  col-md-12">
-              <span class="thong-tin-thanh-toan">
-                <h5>Chỉnh sửa thông tin nhân viên cơ bản</h5>
-              </span>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-6">
-              <label class="control-label">ID nhân viên</label>
-              <input class="form-control" type="text" required value="#CD2187" disabled>
-            </div>
-            <div class="form-group col-md-6">
-              <label class="control-label">Họ và tên</label>
-              <input class="form-control" type="text" required value="Võ Trường">
-            </div>
-            <div class="form-group  col-md-6">
-              <label class="control-label">Số điện thoại</label>
-              <input class="form-control" type="number" required value="09267312388">
-            </div>
-            <div class="form-group col-md-6">
-              <label class="control-label">Địa chỉ email</label>
-              <input class="form-control" type="text" required value="truong.vd2000@gmail.com">
-            </div>
-            <div class="form-group col-md-6">
-              <label class="control-label">Ngày sinh</label>
-              <input class="form-control" type="date" value="15/03/2000">
-            </div>
-            <div class="form-group  col-md-6">
-              <label for="exampleSelect1" class="control-label">Chức vụ</label>
-              <select class="form-control" id="exampleSelect1">
-                <option>Bán hàng</option>
-                <option>Tư vấn</option>
-                <option>Dịch vụ</option>
-                <option>Thu Ngân</option>
-                <option>Quản kho</option>
-                <option>Bảo trì</option>
-                <option>Kiểm hàng</option>
-                <option>Bảo vệ</option>
-                <option>Tạp vụ</option>
-              </select>
-            </div>
-          </div>
-          <BR>
-          <a href="#" style="    float: right;
-        font-weight: 600;
-        color: #ea0000;">Chỉnh sửa nâng cao</a>
-          <BR>
-          <BR>
-          <button class="btn btn-save" type="button">Lưu lại</button>
-          <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-          <BR>
-        </div>
-        <div class="modal-footer">
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--
-  MODAL
--->
+  
 
   <!-- Essential javascripts for application to work-->
   <script src="js/jquery-3.2.1.min.js"></script>

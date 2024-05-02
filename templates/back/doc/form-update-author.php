@@ -1,22 +1,22 @@
 <?php
 $connect = mysqli_connect('localhost','root','','book');
-    if (isset($_POST['them'])){
+$author = mysqli_fetch_array($connect->query("select * from author where id_author=" . $_GET['id_author']));
+    if (isset($_POST['sua'])){
         $name = $_POST['name'];
+        $name = $_POST['name'];
+        $query = "select * from author where name='$name' and id_author!=" . $author['id_author'];
         $information = $_POST['information'];
-        $query = "select * from author where name='$name'";
-        if (mysqli_num_rows($connect->query($query))!=0){
-            $alert = "Tác giả đã tồn tại";
-        } else {
+        
           $store = "../../image/";
           $imageName = $_FILES['image']['name'];
         // save the temp path of file uploaded 
           $imageTemp = $_FILES['image']['tmp_name'];
           $imageName = time() . '_' . $imageName;
           move_uploaded_file($imageTemp, $store . $imageName);
+          if(empty($imageName))$imageName = $author['image'];
             // $status = $_POST['status'];
-            $connect->query("insert author(name,image, information)  values ('$name','$imageName', '$information')");
+            $connect->query("update author set name='$name' , image='$imageName', information='$information'where id_author = " . $_GET['id_author'] ) ;
             header("Location: table-data-author.php");
-        }
     }
 ?>
 
@@ -24,7 +24,7 @@ $connect = mysqli_connect('localhost','root','','book');
 <html lang="en">
 
 <head>
-  <title>Thêm nhân viên | Quản trị Admin</title>
+  <title>Sửa thông tin tác giả</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -172,7 +172,7 @@ $connect = mysqli_connect('localhost','root','','book');
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item">Danh sách tác giả</li>
-        <li class="breadcrumb-item"><a href="#">Thêm tác giả</a></li>
+        <li class="breadcrumb-item"><a href="#">Sửa thông tin tác giả</a></li>
       </ul>
     </div>
   <form method="post" enctype="multipart/form-data">
@@ -181,7 +181,7 @@ $connect = mysqli_connect('localhost','root','','book');
 
         <div class="tile">
 
-          <h3 class="tile-title">Tạo mới tác giả</h3>
+          <h3 class="tile-title">Sửa thông tin tác giả</h3>
           <div class="tile-body">
             <div class="row element-button">
               <div class="col-sm-2">
@@ -192,60 +192,31 @@ $connect = mysqli_connect('localhost','root','','book');
             </div>
             <form class="row">
               <div class="form-group col-md-4">
-                <label class="control-label">Tên tác giả</label>
-                <input class="form-control" type="text" name="name">
+                <label class="control-label" >Tên tác giả</label>
+                <input class="form-control" type="text" name="name" value="<?php echo $author['name']?>">
               </div>
               <div class="form-group col-md-4">
                 <label class="control-label">Hình ảnh</label>
                 <input  type="file" name="image" >
+                <br>
+                Ảnh cũ :
+                <img src="../../image/<?php echo $author['image']?>" alt="">
               </div>
               <div class="form-group col-md-12">
-                <label class="control-label">Thông tin</label>
-                <textarea class="form-control" name="information" id="information"> </textarea>
+                <label class="control-label">Thông tin tác giả</label>
+                <textarea class="form-control" name="information" id="information" ><?php echo $author['information']?></textarea>
                 <script>CKEDITOR.replace('information');</script>
               </div>
             </div>
           </div>
-          <input class="btn btn-save" type="submit" value="Lưu lại" name="them">Lưu lại</input>
+          <input class="btn btn-save" type="submit" value="Lưu lại" name="sua"></input>
           <a class="btn btn-cancel" href="table-data-author.php">Hủy bỏ</a>
         </div>
   </form>
   </main>
 
 
-  <!--
-  MODAL
--->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-
-        <div class="modal-body">
-          <div class="row">
-            <div class="form-group  col-md-12">
-              <span class="thong-tin-thanh-toan">
-                <h5>Tạo chức vụ mới</h5>
-              </span>
-            </div>
-            <div class="form-group col-md-12">
-              <label class="control-label">Nhập tên chức vụ mới</label>
-              <input class="form-control" type="text" required>
-            </div>
-          </div>
-          <BR>
-          <button class="btn btn-save" type="button">Lưu lại</button>
-          <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-          <BR>
-        </div>
-        <div class="modal-footer">
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--
-  MODAL
--->
+ 
 
 
   <!-- Essential javascripts for application to work-->
