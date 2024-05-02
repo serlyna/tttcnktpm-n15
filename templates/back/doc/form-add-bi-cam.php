@@ -54,7 +54,7 @@
             class="app-menu__label">Bảng điều khiển</span></a></li>
       <li><a class="app-menu__item " href="table-data-author.php"><i class='app-menu__icon bx bx-id-card'></i> <span
             class="app-menu__label">Quản lý tác giả</span></a></li>
-      <li><a class="app-menu__item" href="#"><i class='app-menu__icon bx bx-user-voice'></i><span
+            <li><a class="app-menu__item" href="table-data-customer.php"><i class='app-menu__icon bx bx-user-voice'></i><span
             class="app-menu__label">Quản lý khách hàng</span></a></li>
       <li><a class="app-menu__item" href="table-data-product.php"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>

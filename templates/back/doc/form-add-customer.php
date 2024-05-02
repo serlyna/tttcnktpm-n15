@@ -1,21 +1,21 @@
 <?php
 $connect = mysqli_connect('localhost','root','','book');
     if (isset($_POST['them'])){
-        $name = $_POST['name'];
-        $information = $_POST['information'];
-        $query = "select * from author where name='$name'";
+        $user = $_POST['user'];
+        $password = $_POST['password'];
+        $query = "select * from customer where user='$user' && password='$password'";
         if (mysqli_num_rows($connect->query($query))!=0){
-            $alert = "Tác giả đã tồn tại";
+            $alert = "Khách hàng đã tồn tại";
         } else {
-          $store = "../../image/";
-          $imageName = $_FILES['image']['name'];
-        // save the temp path of file uploaded 
-          $imageTemp = $_FILES['image']['tmp_name'];
-          $imageName = time() . '_' . $imageName;
-          move_uploaded_file($imageTemp, $store . $imageName);
-            // $status = $_POST['status'];
-            $connect->query("insert author(name,image, information)  values ('$name','$imageName', '$information')");
-            header("Location: table-data-author.php");
+            $name= $_POST['name'];
+            $phone_number= $_POST['phone_number'];
+            $address= $_POST['address'];
+            $email= $_POST['email'];
+            if ($_POST['gender']=="male") $gender = 0;
+            else if ($_POST['gender']=="female") $gender=1;
+            else $gender = 2;
+            $connect->query("insert customer(user,password, fullname,gender,phone_number,address,email) values ('$user','$password', '$name',$gender,'$phone_number','$address','$email')");
+            header("Location: table-data-customer.php");
         }
     }
 ?>
@@ -24,7 +24,7 @@ $connect = mysqli_connect('localhost','root','','book');
 <html lang="en">
 
 <head>
-  <title>Thêm nhân viên | Quản trị Admin</title>
+  <title>Thêm khách hàng mới</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -173,8 +173,8 @@ $connect = mysqli_connect('localhost','root','','book');
   <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
-        <li class="breadcrumb-item">Danh sách tác giả</li>
-        <li class="breadcrumb-item"><a href="#">Thêm tác giả</a></li>
+        <li class="breadcrumb-item">Danh sách khách hàng</li>
+        <li class="breadcrumb-item"><a href="#">Thêm khách hàng mới</a></li>
       </ul>
     </div>
   <form method="post" enctype="multipart/form-data">
@@ -183,71 +183,58 @@ $connect = mysqli_connect('localhost','root','','book');
 
         <div class="tile">
 
-          <h3 class="tile-title">Tạo mới tác giả</h3>
+          <h3 class="tile-title">Tạo khách hàng</h3>
           <div class="tile-body">
-            <div class="row element-button">
-              <div class="col-sm-2">
-                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><b><i
-                      class="fas fa-folder-plus"></i> Tạo chức vụ mới</b></a>
-              </div>
-
-            </div>
+            
             <form class="row">
+            <div class="form-group col-md-4">
+                <label class="control-label">User</label>
+                <input class="form-control" type="text" name="user">
+              </div>
               <div class="form-group col-md-4">
-                <label class="control-label">Tên tác giả</label>
+                <label class="control-label">Password</label>
+                <input class="form-control" type="password" name="password">
+              </div>
+              <div class="form-group col-md-4">
+                <label class="control-label">Tên khách hàng</label>
                 <input class="form-control" type="text" name="name">
               </div>
               <div class="form-group col-md-4">
-                <label class="control-label">Hình ảnh</label>
-                <input  type="file" name="image" >
+                <label class="control-label">Giới tính</label>
+                <br>
+                    <label>
+                        <input type="radio" name="gender" value="male"> Nam
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="female"> Nữ
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="other"> Khác
+                    </label>
               </div>
-              <div class="form-group col-md-12">
-                <label class="control-label">Thông tin</label>
-                <textarea class="form-control" name="information" id="information"> </textarea>
-                <script>CKEDITOR.replace('information');</script>
+              <div class="form-group col-md-4">
+                <label class="control-label">Số điện thoại</label>
+                <input class="form-control" type="text" name="phone_number">
               </div>
+              <div class="form-group col-md-4">
+                <label class="control-label">Địa chỉ</label>
+                <input class="form-control" type="text" name="address">
+              </div>
+              <div class="form-group col-md-4">
+                <label class="control-label">Email</label>
+                <input class="form-control" type="email" name="email">
+              </div>
+              
             </div>
           </div>
-          <input class="btn btn-save" type="submit" value="Lưu lại" name="them">Lưu lại</input>
-          <a class="btn btn-cancel" href="table-data-author.php">Hủy bỏ</a>
+          <input class="btn btn-save" type="submit" value="Lưu lại" name="them"></input>
+          <a class="btn btn-cancel" href="table-data-customer.php">Hủy bỏ</a>
         </div>
   </form>
   </main>
 
 
-  <!--
-  MODAL
--->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-
-        <div class="modal-body">
-          <div class="row">
-            <div class="form-group  col-md-12">
-              <span class="thong-tin-thanh-toan">
-                <h5>Tạo chức vụ mới</h5>
-              </span>
-            </div>
-            <div class="form-group col-md-12">
-              <label class="control-label">Nhập tên chức vụ mới</label>
-              <input class="form-control" type="text" required>
-            </div>
-          </div>
-          <BR>
-          <button class="btn btn-save" type="button">Lưu lại</button>
-          <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-          <BR>
-        </div>
-        <div class="modal-footer">
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--
-  MODAL
--->
+ 
 
 
   <!-- Essential javascripts for application to work-->

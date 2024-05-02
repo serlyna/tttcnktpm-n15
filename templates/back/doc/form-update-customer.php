@@ -1,30 +1,27 @@
 <?php
 $connect = mysqli_connect('localhost','root','','book');
-    if (isset($_POST['them'])){
+$customer = mysqli_fetch_array($connect->query("select * from customer where id_customer=" . $_GET['id_customer']));
+    if (isset($_POST['sua'])){
+        $user = $_POST['user'];
+        $password = $_POST['password'];
         $name = $_POST['name'];
-        $information = $_POST['information'];
-        $query = "select * from author where name='$name'";
-        if (mysqli_num_rows($connect->query($query))!=0){
-            $alert = "Tác giả đã tồn tại";
-        } else {
-          $store = "../../image/";
-          $imageName = $_FILES['image']['name'];
-        // save the temp path of file uploaded 
-          $imageTemp = $_FILES['image']['tmp_name'];
-          $imageName = time() . '_' . $imageName;
-          move_uploaded_file($imageTemp, $store . $imageName);
-            // $status = $_POST['status'];
-            $connect->query("insert author(name,image, information)  values ('$name','$imageName', '$information')");
-            header("Location: table-data-author.php");
-        }
-    }
+        $phone_number= $_POST['phone_number'];
+        $address= $_POST['address'];
+        $email= $_POST['email'];
+        if ($_POST['gender']=="male") $gender = 0;
+        else if ($_POST['gender']=="female") $gender=1;
+        else $gender = 2;
+        $connect->query("update customer set user='$user',password='$password', fullname='$name',gender=$gender,
+        phone_number='$phone_number',address='$address',email='$email'where id_customer = " . $_GET['id_customer'] );
+        header("Location: table-data-customer.php");
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Thêm nhân viên | Quản trị Admin</title>
+  <title>Sửa thông tin khách hàng</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -147,10 +144,10 @@ $connect = mysqli_connect('localhost','root','','book');
             class="app-menu__label">Bảng điều khiển</span></a></li>
       <li><a class="app-menu__item active" href="table-data-table.php"><i class='app-menu__icon bx bx-id-card'></i>
           <span class="app-menu__label">Quản lý nhân viên</span></a></li>
-          <li><a class="app-menu__item" href="table-data-customer.php"><i class='app-menu__icon bx bx-user-voice'></i><span
-            class="app-menu__label">Quản lý khách hàng</span></a></li>
       <li><a class="app-menu__item " href="table-data-author.php"><i class='app-menu__icon bx bx-id-card'></i> <span
             class="app-menu__label">Quản lý tác giả</span></a></li>
+            <li><a class="app-menu__item" href="table-data-customer.php"><i class='app-menu__icon bx bx-user-voice'></i><span
+            class="app-menu__label">Quản lý khách hàng</span></a></li>
       <li><a class="app-menu__item" href="table-data-product.php"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
       </li>
@@ -174,7 +171,7 @@ $connect = mysqli_connect('localhost','root','','book');
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item">Danh sách tác giả</li>
-        <li class="breadcrumb-item"><a href="#">Thêm tác giả</a></li>
+        <li class="breadcrumb-item"><a href="#">Sửa thông tin khách hàng</a></li>
       </ul>
     </div>
   <form method="post" enctype="multipart/form-data">
@@ -183,7 +180,7 @@ $connect = mysqli_connect('localhost','root','','book');
 
         <div class="tile">
 
-          <h3 class="tile-title">Tạo mới tác giả</h3>
+          <h3 class="tile-title">Sửa thông tin khách hàng</h3>
           <div class="tile-body">
             <div class="row element-button">
               <div class="col-sm-2">
@@ -194,60 +191,52 @@ $connect = mysqli_connect('localhost','root','','book');
             </div>
             <form class="row">
               <div class="form-group col-md-4">
-                <label class="control-label">Tên tác giả</label>
-                <input class="form-control" type="text" name="name">
+                <label class="control-label" >User</label>
+                <input class="form-control" type="text" name="user" value="<?php echo $customer['user']?>">
               </div>
               <div class="form-group col-md-4">
-                <label class="control-label">Hình ảnh</label>
-                <input  type="file" name="image" >
+                <label class="control-label" >Password</label>
+                <input class="form-control" type="password" name="password" value="<?php echo $customer['password']?>">
+              </div>
+              <div class="form-group col-md-4">
+                <label class="control-label" >Name</label>
+                <input class="form-control" type="text" name="name" value="<?php echo $customer['fullname']?>">
+              </div>
+              <div class="form-group col-md-4">
+                <label class="control-label" >Gender</label>
+                <br>
+                <label>
+                    <input type="radio" name="gender" value="male" <?php if ($customer['gender'] == 0) echo 'checked'; ?>> Nam
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="female" <?php if ($customer['gender'] == 1) echo 'checked';?>> Nữ
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="other" <?php if ($customer['gender'] !=0 && $customer['gender'] !=1) echo 'checked';?>> Khác
+                </label>
+              </div>
+              <div class="form-group col-md-4">
+                <label class="control-label" ></label>
+                <input class="form-control" type="text" name="phone_number" value="<?php echo $customer['phone_number']?>">
+              </div>
+              <div class="form-group col-md-4">
+                <label class="control-label" ></label>
+                <input class="form-control" type="text" name="address" value="<?php echo $customer['address']?>">
               </div>
               <div class="form-group col-md-12">
-                <label class="control-label">Thông tin</label>
-                <textarea class="form-control" name="information" id="information"> </textarea>
-                <script>CKEDITOR.replace('information');</script>
+                <label class="control-label">Email</label>
+                <input class="form-control"  name="email" value="<?php echo $customer['email']?>" >
               </div>
             </div>
           </div>
-          <input class="btn btn-save" type="submit" value="Lưu lại" name="them">Lưu lại</input>
+          <input class="btn btn-save" type="submit" value="Lưu lại" name="sua"></input>
           <a class="btn btn-cancel" href="table-data-author.php">Hủy bỏ</a>
         </div>
   </form>
   </main>
 
 
-  <!--
-  MODAL
--->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-
-        <div class="modal-body">
-          <div class="row">
-            <div class="form-group  col-md-12">
-              <span class="thong-tin-thanh-toan">
-                <h5>Tạo chức vụ mới</h5>
-              </span>
-            </div>
-            <div class="form-group col-md-12">
-              <label class="control-label">Nhập tên chức vụ mới</label>
-              <input class="form-control" type="text" required>
-            </div>
-          </div>
-          <BR>
-          <button class="btn btn-save" type="button">Lưu lại</button>
-          <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-          <BR>
-        </div>
-        <div class="modal-footer">
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--
-  MODAL
--->
+ 
 
 
   <!-- Essential javascripts for application to work-->

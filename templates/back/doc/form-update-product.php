@@ -212,6 +212,8 @@ $pub = $connect->query("select * from publishing_company")
           <span class="app-menu__label">Quản lý nhân viên</span></a></li>
           <li><a class="app-menu__item " href="table-data-author.php"><i class='app-menu__icon bx bx-id-card'></i> <span
             class="app-menu__label">Quản lý tác giả</span></a></li>
+            <li><a class="app-menu__item" href="table-data-customer.php"><i class='app-menu__icon bx bx-user-voice'></i><span
+            class="app-menu__label">Quản lý khách hàng</span></a></li>
       <li><a class="app-menu__item active" href="table-data-product.php"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sách</span></a>
       </li>
