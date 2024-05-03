@@ -14,7 +14,6 @@ $lastDayOfMonth = date('Y-m-t');
 $queryNumberOfOrder1 = "SELECT * FROM `orders` WHERE datetime_note BETWEEN '$firstDayOfMonth' AND '$lastDayOfMonth'";
 $resultNumberOfOrder1 = mysqli_num_rows($connect->query($queryNumberOfOrder));
 
-echo "Số lượng đơn hàng trong tháng này: " . $resultNumberOfOrder;
 $queryRevenue = "SELECT price, quantity FROM order_detail JOIN `orders` ON order_detail.id_order = `orders`.id_order WHERE `orders`.status != 4";
 $resultRevenue = $connect->query($queryRevenue);
 
@@ -127,8 +126,8 @@ $saleJSON = json_encode($sales);
       </li>
       <li><a class="app-menu__item" href="table-data-oder.php"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý đơn hàng</span></a></li>
-      <li><a class="app-menu__item" href="table-data-banned.php"><i class='app-menu__icon bx bx-run'></i><span
-            class="app-menu__label">Quản lý nội bộ
+      <li><a class="app-menu__item" href="table-data-article.php"><i class='app-menu__icon bx bx-run'></i><span
+            class="app-menu__label">Quản lý bài viết
           </span></a></li>
       <li><a class="app-menu__item" href="table-data-money.php"><i class='app-menu__icon bx bx-dollar'></i><span
             class="app-menu__label">Bảng kê lương</span></a></li>

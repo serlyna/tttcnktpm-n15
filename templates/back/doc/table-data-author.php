@@ -59,7 +59,7 @@ $result = $connect->query($sql);
           <span class="app-menu__label">POS Bán Hàng</span></a></li>
       <li><a class="app-menu__item " href="index.php"><i class='app-menu__icon bx bx-tachometer'></i><span
             class="app-menu__label">Bảng điều khiển</span></a></li>
-            <li><a class="app-menu__item " href="table-data-author.php"><i class='app-menu__icon bx bx-id-card'></i> <span
+            <li><a class="app-menu__item active" href="table-data-author.php"><i class='app-menu__icon bx bx-id-card'></i> <span
             class="app-menu__label">Quản lý tác giả</span></a></li>
             <li><a class="app-menu__item" href="table-data-customer.php"><i class='app-menu__icon bx bx-user-voice'></i><span
             class="app-menu__label">Quản lý khách hàng</span></a></li>
@@ -68,8 +68,8 @@ $result = $connect->query($sql);
       </li>
       <li><a class="app-menu__item" href="table-data-oder.php"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý đơn hàng</span></a></li>
-      <li><a class="app-menu__item" href="table-data-banned.php"><i class='app-menu__icon bx bx-run'></i><span
-            class="app-menu__label">Quản lý nội bộ
+            <li><a class="app-menu__item" href="table-data-article.php"><i class='app-menu__icon bx bx-run'></i><span
+            class="app-menu__label">Quản lý bài viết
           </span></a></li>
       <li><a class="app-menu__item" href="table-data-money.php"><i class='app-menu__icon bx bx-dollar'></i><span
             class="app-menu__label">Bảng kê lương</span></a></li>
@@ -85,7 +85,7 @@ $result = $connect->query($sql);
   <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb side">
-        <li class="breadcrumb-item active"><a href="#"><b>Danh sách nhân viên</b></a></li>
+        <li class="breadcrumb-item active"><a href="#"><b>Danh sách tác giả</b></a></li>
       </ul>
       <div id="clock"></div>
     </div>
@@ -150,7 +150,7 @@ $result = $connect->query($sql);
                 <td><?php echo $row['information']; ?></td>
                   
                   
-                  <td class="table-td-center"><a  class="btn btn-primary btn-sm trash" type="submit" value="Xóa"
+                  <td class="table-td-center"><a href="form-delete-author.php?id_author=<?= $row['id_author']?>" class="btn btn-primary btn-sm trash" type="submit" value="Xóa"
                       >Xóa<i class="fas fa-trash-alt"></i>
 </a>
                     <a href="form-update-author.php?id_author=<?= $row['id_author']?>" class="btn btn-primary btn-sm edit" type="submit" title="Sửa"
