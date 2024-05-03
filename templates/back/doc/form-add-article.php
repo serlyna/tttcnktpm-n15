@@ -1,94 +1,62 @@
 <?php
-    $connect = mysqli_connect('localhost','root','','book');
-    $product = mysqli_fetch_array($connect->query("select * from product where id_product=" . $_GET['id_product']));
-    if (isset($_POST['sua'])) {
-        $name = $_POST['name'];
-        $query = "select * from product where name='$name' and id_product!=" . $product['id_product'];
-        if (mysqli_num_rows($connect->query($query)) != 0) {
-            $a = "Sản phẩm đã tồn tại";
-            echo "<br>Lỗi";
-            echo "Loi";
-        } else {
+$connect = mysqli_connect('localhost','root','','book');
+if (isset($_POST['them'])) {
+    $name = $_POST['name'];
+    $query = "select * from article where name='$name'";
+    if (mysqli_num_rows($connect->query($query)) != 0) {
+        $alert = "Bài viết đã tồn tại";
+    } else {
         $id_author = $_POST['id_author'];
-        $id_cat = $_POST['id_cat'];
-        $id_pub = $_POST['id_pub'];
-        $cost = $_POST['cost'];
-        $price = $_POST['price'];
-        $information = $_POST['information'];
-        $quantity = $_POST['quantity'];
-        $size = $_POST['size'];
-        $number_page = $_POST['number_page'];
-            // $status = $_POST['status'];
-            // Deal with upload images
-            // destination to save images
-            $store = "../../image/";
-            $imageName1 = $_FILES['image1']['name'];
+        $id_product = $_POST['id_product'];
+        //name	
+        // summary	
+        // content	
+        // description	
+        // image	
+        // youtube
+        $summary = $_POST['summary'];
+        $content = $_POST['content'];
+        $youtube = $_POST['youtube'];
+        $store = "../../image/";
+        $imageName = $_FILES['image']['name'];
         // save the temp path of file uploaded 
-        $imageTemp1 = $_FILES['image1']['tmp_name'];
+        $imageTemp = $_FILES['image']['tmp_name'];
         // take the expand of file
-        $exp3 = substr($imageName1, strlen($imageName1) - 3); #abcd.jpg;
-        $exp4 = substr($imageName1, strlen($imageName1) - 4); #abcd.jpeg;
+        $exp3 = substr($imageName, strlen($imageName) - 3); #abcd.jpg;
+        $exp4 = substr($imageName, strlen($imageName) - 4); #abcd.jpeg;
 
-        $imageName2 = $_FILES['image2']['name'];
-        $imageTemp2 = $_FILES['image2']['tmp_name'];
-
-        $imageName3 = $_FILES['image3']['name'];
-        $imageTemp3 = $_FILES['image3']['tmp_name'];
-
-            if (
-                $exp3 == 'jpg' || $exp3 == 'png' || $exp3 == 'bmp' || $exp3 == 'gif' || $exp4 == 'webp' || $exp4 == 'jpeg' ||
-                $exp3 == 'JPG' || $exp3 == 'PNG' || $exp3 == 'GIF' || $exp3 == 'BMP' || $exp4 == 'WEBP' || $exp4 == 'JPEG'
-            ) {
-                // change the name of image, difference 1/1/1970 -> now (ms)
-                $imageName1 = time() . '_' . $imageName1;
-                // move file upload to the destination want to save
-                move_uploaded_file($imageTemp1, $store . $imageName1);
-                // if ("../images" . $product['image']) unlink("../images" . $product['image']);
-                // delete the old image after update new image to save the memory
-                unlink($store.$product['image1']);
-            } 
-            else {
-                $alert = "File đã chọn không hợp lệ";
-            }
-            if (empty($imageName1)) {
-                //if admin don't change the image it will be the old
-                $imageName1 = $product['image1'];
-               
-            }
-            if (empty($imageName2)) {
-              //if admin don't change the image it will be the old
-              $imageName2 = $product['image2'];
-             
-          }
-          if (empty($imageName3)) {
-            //if admin don't change the image it will be the old
-            $imageName3 = $product['image3'];
-           
-        }
-            //echo  $number_page;
-            //echo $imageName1;
-            // echo $author_id, $name, $price, $description, $status, "image: ", $imageName;
-            // $query = ("update product set id_author = $id_author, id_cat = $id_cat,id_pub=$id_pub, name='$name',
-            //     image1='$imageName1', information='$information', price=$price,cost=$cost,quantity= $quantity , size='$size',number_page=$number_page where id_product=" . $product['id_product']);
-            $query = "update product set id_author = $id_author, id_category = $id_cat, id_pub = $id_pub, name = '$name',image1 = '$imageName1', information = '$information', price = $price, cost = $cost, quantity = $quantity, size = '$size', number_page = $number_page
-            ,image2='$imageName2', image3='$imageName3'
-            where id_product = " . $_GET['id_product'] ;
-            $kq = mysqli_query($connect , $query);
-            header("Location:table-data-product.php");
+        
+        if (
+            ($exp3 == 'jpg' || $exp3 == 'png' || $exp3 == 'bmp' || $exp3 == 'gif' || $exp4 == 'webp' || $exp4 == 'jpeg' ||
+            $exp3 == 'JPG' || $exp3 == 'PNG' || $exp3 == 'GIF' || $exp3 == 'BMP' || $exp4 == 'WEBP' || $exp4 == 'JPEG')
+            
+        ) {
+            // change the name of image, difference 1/1/1970 -> now (ms)
+            $imageName = time() . '_' . $imageName;
+         
+            // move file upload to the destination want to save
+            move_uploaded_file($imageTemp, $store . $imageName);
+          
+            $connect->query("insert into article( id_author,id_product,name,summary,content,image,youtube)
+            values ( $id_author,$id_product,'$name','$summary','$content','$imageName','$youtube')");
+             header("Location:table-data-article.php");
+        } else {
+          echo "Không thành công";
+            $alert = "File đã chọn không hợp lệ";
         }
     }
+}
 ?>
 <?php
 $author = $connect->query("select * from author");
-$category = $connect->query("select * from category");
-$pub = $connect->query("select * from publishing_company");
-?>
+$product = $connect->query("select * from product");
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Sửa thông tin sản phẩm </title>
+  <title>Thêm sản phẩm </title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -198,7 +166,7 @@ $pub = $connect->query("select * from publishing_company");
     <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/images/hay.jpg" width="50px"
         alt="User Image">
       <div>
-        <p class="app-sidebar__user-name"><b>Võ Trường</b></p>
+        <p class="app-sidebar__user-name"><b>Admin</b></p>
         <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
       </div>
     </div>
@@ -208,18 +176,16 @@ $pub = $connect->query("select * from publishing_company");
           <span class="app-menu__label">POS Bán Hàng</span></a></li>
       <li><a class="app-menu__item " href="index.php"><i class='app-menu__icon bx bx-tachometer'></i><span
             class="app-menu__label">Bảng điều khiển</span></a></li>
-      <li><a class="app-menu__item " href="table-data-table.php"><i class='app-menu__icon bx bx-id-card'></i>
-          <span class="app-menu__label">Quản lý nhân viên</span></a></li>
-          <li><a class="app-menu__item " href="table-data-author.php"><i class='app-menu__icon bx bx-id-card'></i> <span
+            <li><a class="app-menu__item " href="table-data-author.php"><i class='app-menu__icon bx bx-id-card'></i> <span
             class="app-menu__label">Quản lý tác giả</span></a></li>
-            <li><a class="app-menu__item" href="table-data-customer.php"><i class='app-menu__icon bx bx-user-voice'></i><span
+      <li><a class="app-menu__item " href="table-data-customer.php"><i class='app-menu__icon bx bx-user-voice'></i><span
             class="app-menu__label">Quản lý khách hàng</span></a></li>
-      <li><a class="app-menu__item active" href="table-data-product.php"><i
+      <li><a class="app-menu__item " href="table-data-product.php"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sách</span></a>
       </li>
       <li><a class="app-menu__item" href="table-data-oder.php"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý đơn hàng</span></a></li>
-            <li><a class="app-menu__item" href="table-data-article.php"><i class='app-menu__icon bx bx-run'></i><span
+            <li><a class="app-menu__item active" href="table-data-article.php"><i class='app-menu__icon bx bx-run'></i><span
             class="app-menu__label">Quản lý bài viết
           </span></a></li>
       <li><a class="app-menu__item" href="table-data-money.php"><i class='app-menu__icon bx bx-dollar'></i><span
@@ -236,14 +202,14 @@ $pub = $connect->query("select * from publishing_company");
   <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
-        <li class="breadcrumb-item">Danh sách sản phẩm</li>
-        <li class="breadcrumb-item"><a href="#">Sửa thông tin sách</a></li>
+        <li class="breadcrumb-item">Danh sách bài viết</li>
+        <li class="breadcrumb-item"><a href="#">Thêm bài viết mới</a></li>
       </ul>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div class="tile">
-          <h3 class="tile-title">Sửa thông tin sách</h3>
+          <h3 class="tile-title">Tạo mới bài viết</h3>
           <div class="tile-body">
             <div class="row element-button">
               <div class="col-sm-2">
@@ -251,7 +217,7 @@ $pub = $connect->query("select * from publishing_company");
                     class="fas fa-folder-plus"></i> Thêm tác giả</a>
               </div>
               <div class="col-sm-2">
-                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#adddanhmuc"><i
+                <a  class="btn btn-add btn-sm" data-toggle="modal" data-target="#adddanhmuc"><i
                     class="fas fa-folder-plus"></i> Thêm thể loại</a>
               </div>
               <div class="col-sm-2">
@@ -261,91 +227,55 @@ $pub = $connect->query("select * from publishing_company");
             </div>
             <form class="row" method="post" enctype="multipart/form-data">
               
-              <div class="form-group col-md-3">
-                <label class="control-label">Tên sản phẩm</label>
-                <input class="form-control" type="text" name="name" value="<?php echo $product['name']?>">
+              <div class="form-group col-md-6">
+                <label class="control-label">Tên bài viết</label>
+                <input class="form-control" type="text" name="name">
               </div>
               <div class="form-group col-md-3 ">
                 <label for="exampleSelect1" class="control-label">Tác giả</label>
                 <select class="form-control" id="exampleSelect1" name="id_author">
                   <option>-- Chọn tác giả --</option>
                   <?php foreach ($author as $item) : ?>
-                <option value="<?= $item['id_author'] ?>" <?= $item['id_author'] == $product['id_author'] ? 'selected' : '' ?>>
+                <option value="<?= $item['id_author'] ?>" <?= $item['id_author']  ?>>
                     <?= $item['name'] ?>
                 </option>
             <?php endforeach; ?>
-                
                 </select>
               </div>
               <div class="form-group col-md-3">
-                <label for="exampleSelect1" class="control-label">Thể loại</label>
-                <select class="form-control" id="exampleSelect1" name="id_cat">
-                  <option>-- Chọn thể loại --</option>
-                  <?php foreach ($category as $item) : ?>
-                <option value="<?= $item['id_category'] ?>" <?= $item['id_category'] == $product['id_category'] ? 'selected' : '' ?>>
+                <label for="exampleSelect1" class="control-label">Tên sách</label>
+                <select class="form-control" id="exampleSelect1" name="id_product">
+                  <option>-- Chọn tên sách --</option>
+                  <?php foreach ($product as $item) : ?>
+                <option value="<?= $item['id_product'] ?>" <?= $item['id_product']  ?>>
                     <?= $item['name'] ?>
                 </option>
                 <?php endforeach; ?>
                 </select>
               </div>
-              <div class="form-group col-md-3 ">
-                <label for="exampleSelect1" class="control-label">Nhà xuất bản</label>
-                <select class="form-control" id="exampleSelect1" name="id_pub">
-                <option hidden>--Chọn nhà xuất bản--</option>
-                <?php foreach ($pub as $item) : ?>
-                <option value="<?= $item['id_pub'] ?>" <?= $item['id_pub'] == $product['id_pub'] ? 'selected' : '' ?>>
-                    <?= $item['name'] ?>
-                </option>
-                <?php endforeach; ?>
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label class="control-label">Giá bìa</label>
-                <input class="form-control" type="text" name="cost" value="<?php echo $product['cost']?>">
-              </div>
-              <div class="form-group col-md-3">
-                <label class="control-label">Giá bán</label>
-                <input class="form-control" type="text" name="price" value="<?php echo $product['price']?>">
+             
+              <div class="form-group col-md-9">
+                <label class="control-label">Tóm tắt</label>
+                <textarea class="form-control" name="summary" id="summary"></textarea>
+                <script>CKEDITOR.replace('summary');</script>
               </div>
               <div class="form-group col-md-12">
-                <label class="control-label">Ảnh sản phẩm 1</label>
-                  <input type="file"  name="image1"  />
-                  <br>
-                  <img src="../../image/<?=$product['image1']?>" alt="" >
+                <label class="control-label">Nội dung</label>
+                <textarea class="form-control" name="content" id="content"></textarea>
+                <script>CKEDITOR.replace('content');</script>
               </div>
               <div class="form-group col-md-12">
-                <label class="control-label">Ảnh sản phẩm 2</label>
-                  <input type="file"  name="image2"  />
-                  <br>
-                  <img src="../../image/<?=$product['image2']?>" alt="" >
+                <label class="control-label">Ảnh bài viết</label>
+                  <input type="file"  name="image"  />
               </div>
               <div class="form-group col-md-12">
-                <label class="control-label">Ảnh sản phẩm 3</label>
-                  <input type="file"  name="image3"  />
-                  <br>
-                  <img src="../../image/<?=$product['image3']?>" alt="" >
-              </div>
-              <div class="form-group col-md-12">
-                <label class="control-label">Mô tả sản phẩm</label>
-                <textarea class="form-control" name="information" id="information" ><?php echo $product['information']?></textarea>
-                <script>CKEDITOR.replace('information');</script>
-              </div>
-              <div class="form-group  col-md-3">
-                <label class="control-label">Số lượng</label>
-                <input class="form-control" type="number" name="quantity"value="<?php echo $product['quantity']?>" >
-              </div>
-              <div class="form-group  col-md-3">
-                <label class="control-label">Size</label>
-                <input class="form-control" type="text" name="size" value="<?php echo $product['size']?>">
-              </div>
-              <div class="form-group  col-md-3">
-                <label class="control-label" type="text">Số trang</label>
-                <input class="form-control" name="number_page" value="<?php echo $product['number_page']?>">
+                <label class="control-label">Youtube</label>
+                <input type="text" name="youtube">
               </div>
           </div>
 
-          <input class="btn btn-save" type="submit" name="sua" value="Lưu lại"></input>
-          <a class="btn btn-cancel" href="table-data-product.php">Hủy bỏ</a>
+          <input class="btn btn-save" type="submit" name="them" value="Lưu lại"></input>
+          <a class="btn btn-cancel" href="table-data-article.php">Hủy bỏ</a>
         </div>
                   </form>
   </main>

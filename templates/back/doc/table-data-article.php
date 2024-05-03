@@ -1,7 +1,7 @@
 <?php
 $connect = new MySQLi('localhost', 'root', '', 'book');
 // Thực hiện truy vấn để lấy dữ liệu từ bảng "product"
-$sql = "SELECT * FROM customer";
+$sql = "SELECT * FROM article";
 $result = $connect->query($sql);
 ?>
 
@@ -9,7 +9,7 @@ $result = $connect->query($sql);
 <html lang="en">
 
 <head>
-  <title>Danh sách khách hàng</title>
+  <title>Danh sách bài viết</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,7 +46,7 @@ $result = $connect->query($sql);
   <!-- Sidebar menu-->
   <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
   <aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../../image/hay.jpg" width="50px"
+    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/images/hay.jpg" width="50px"
         alt="User Image">
       <div>
         <!-- <p class="app-sidebar__user-name"><b><?php $_SESSION['admin'] ?></b></p>
@@ -61,14 +61,14 @@ $result = $connect->query($sql);
             class="app-menu__label">Bảng điều khiển</span></a></li>
             <li><a class="app-menu__item " href="table-data-author.php"><i class='app-menu__icon bx bx-id-card'></i> <span
             class="app-menu__label">Quản lý tác giả</span></a></li>
-            <li><a class="app-menu__item active" href="table-data-customer.php"><i class='app-menu__icon bx bx-user-voice'></i><span
+            <li><a class="app-menu__item" href="table-data-customer.php"><i class='app-menu__icon bx bx-user-voice'></i><span
             class="app-menu__label">Quản lý khách hàng</span></a></li>
       <li><a class="app-menu__item" href="table-data-product.php"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sách</span></a>
       </li>
       <li><a class="app-menu__item" href="table-data-oder.php"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý đơn hàng</span></a></li>
-            <li><a class="app-menu__item" href="table-data-article.php"><i class='app-menu__icon bx bx-run'></i><span
+            <li><a class="app-menu__item active" href="table-data-article.php"><i class='app-menu__icon bx bx-run'></i><span
             class="app-menu__label">Quản lý bài viết
           </span></a></li>
       <li><a class="app-menu__item" href="table-data-money.php"><i class='app-menu__icon bx bx-dollar'></i><span
@@ -85,7 +85,7 @@ $result = $connect->query($sql);
   <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb side">
-        <li class="breadcrumb-item active"><a href="#"><b>Danh sách khách hàng</b></a></li>
+        <li class="breadcrumb-item active"><a href="#"><b>Danh sách bài viết</b></a></li>
       </ul>
       <div id="clock"></div>
     </div>
@@ -98,8 +98,8 @@ $result = $connect->query($sql);
             <div class="row element-button">
               <div class="col-sm-2">
 
-                <a class="btn btn-add btn-sm" href="form-add-customer.php" title="Thêm"><i class="fas fa-plus"></i>
-                  Tạo khách hàng mới </a>
+                <a class="btn btn-add btn-sm" href="form-add-article.php" title="Thêm"><i class="fas fa-plus"></i>
+                  Tạo bài viết mới </a>
               </div>
               <div class="col-sm-2">
                 <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập" onclick="myFunction(this)"><i
@@ -132,39 +132,29 @@ $result = $connect->query($sql);
               <?php $count = 1; ?> 
               <thead>
                 <tr>
-                  <th width="10">STT</th>
-                  <th>Mã khách hàng</th>
-                  <th width="300">Họ và tên</th>
-                  <th width="100">Giới tính</th>
-                  <th width="100">Số điện thoại</th>
-                  <th width="100">Địa chỉ</th>
-                  <th width="100">Email</th>
-                  <th width="100">Hành động</th>
+                  <th width="30">STT</th>
+                  <th width="50">Mã bài viết</th>
+                  <th width="150">Tên bài viết</th>
+                  <th width="200">Tóm tắt</th>
+                  <th width="300">Nội dung bài viết</th>
+                  <th width="80">Hành động</th>
                 </tr>
               </thead>
               <tbody>
               <?php while ($row = $result->fetch_assoc()) { ?>
             <tr>
                 <th><?= $count++ ?></th>
-                <td><?php echo $row['id_customer']; ?></td>
-                <td><?php echo $row['fullname']; ?></td>
-                <td><?php
-                if( $row['gender']==1) echo "Nữ";
-                else if  ( $row['gender']==0) echo "Nam";
-                else echo "Khác";
-                ?></td>
-                <td><?php echo $row['phone_number']; ?></td>
-                <td><?php echo $row['address']; ?></td>
-                <td><?php echo $row['email']; ?></td>
-                <td class="table-td-center"><a href="form-delete-customer.php?id_customer=<?= $row['id_customer']?>" class="btn btn-primary btn-sm trash" type="submit" value="Xóa"
+                <td><?php echo $row['id_article']; ?></td>
+                <td><?php echo $row['name']; ?></td>
+                <td><?php echo $row['summary']; ?></td>
+                <td><?php echo $row['content']; ?></td>
+                  <td class="table-td-center"><a href="form-delete-article.php?id_article=<?= $row['id_article']?>" class="btn btn-primary btn-sm trash" type="submit" value="Xóa"
                       >Xóa<i class="fas fa-trash-alt"></i>
 </a>
-                    <a href="form-update-customer.php?id_customer=<?= $row['id_customer']?>" class="btn btn-primary btn-sm edit" type="submit" title="Sửa"
+                    <a href="form-update-article.php?id_article=<?= $row['id_article']?>" class="btn btn-primary btn-sm edit" type="submit" title="Sửa"
                       >Sửa<i class="fas fa-edit"></i>
                     </button>
                   </td>
-                  
-                  
                 </tr>
                 <?php } ?>
               </tbody>
@@ -197,11 +187,6 @@ $result = $connect->query($sql);
   <script type="text/javascript">$('#sampleTable').DataTable();</script>
   <script>
     
-    oTable = $('#sampleTable').dataTable();
-    $('#all').click(function (e) {
-      $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
-      e.stopImmediatePropagation();
-    });
 
     //EXCEL
     // $(document).ready(function () {
@@ -265,11 +250,28 @@ $result = $connect->query($sql);
         win.print();
       }
     }
-    
+    //     //Sao chép dữ liệu
+    //     var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+
+    // copyTextareaBtn.addEventListener('click', function(event) {
+    //   var copyTextarea = document.querySelector('.js-copytextarea');
+    //   copyTextarea.focus();
+    //   copyTextarea.select();
+
+    //   try {
+    //     var successful = document.execCommand('copy');
+    //     var msg = successful ? 'successful' : 'unsuccessful';
+    //     console.log('Copying text command was ' + msg);
+    //   } catch (err) {
+    //     console.log('Oops, unable to copy');
+    //   }
+    // });
 
 
     //Modal
-    
+    $("#show-emp").on("click", function () {
+      $("#ModalUP").modal({ backdrop: false, keyboard: false })
+    });
   </script>
 </body>
 

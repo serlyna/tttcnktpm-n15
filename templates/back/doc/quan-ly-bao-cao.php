@@ -1,3 +1,66 @@
+<?php 
+    $connect = new MySQLi('localhost', 'root', '', 'book');
+    $queryNumberOfMembers = "select * from customer";
+    $resultNumberOfMembers = mysqli_num_rows($connect->query($queryNumberOfMembers));
+    $queryNumberOfProduct = "select * from product";
+    $resultNumberOfProduct = mysqli_num_rows($connect->query($queryNumberOfProduct));
+    //Sap het hang
+    $queryNumberOfProduct1 = "select * from product WHERE quantity > 0 and quantity <= 10";
+    $resultNumberOfProduct1 = mysqli_num_rows($connect->query($queryNumberOfProduct1));
+    $resultOfProduct1 = $connect->query($queryNumberOfProduct1);
+    //Het hang
+    $queryNumberOfProduct2 = "select * from product WHERE quantity = 0 ";
+    $resultNumberOfProduct2 = mysqli_num_rows($connect->query($queryNumberOfProduct2));
+    $resultOfProduct2 = $connect->query($queryNumberOfProduct2);
+
+
+    $queryNumberOfOrder = "SELECT * FROM `orders`";
+    $resultNumberOfOrder = mysqli_num_rows($connect->query($queryNumberOfOrder));
+    // Lấy ngày đầu tiên và cuối cùng của tháng hiện tại
+    $firstDayOfMonth = date('Y-m-01');
+    $lastDayOfMonth = date('Y-m-t');
+    
+    $queryNumberOfOrder1 = "SELECT * FROM `orders` WHERE datetime_note BETWEEN '$firstDayOfMonth' AND '$lastDayOfMonth'";
+    $resultNumberOfOrder1 = mysqli_num_rows($connect->query($queryNumberOfOrder));
+    
+    $queryRevenue = "SELECT price, quantity FROM order_detail JOIN `orders` ON order_detail.id_order = `orders`.id_order WHERE `orders`.status != 4";
+    $resultRevenue = $connect->query($queryRevenue);
+    
+    if ($resultRevenue && $resultRevenue->num_rows > 0) {
+      $total = 0;
+      while ($row = $resultRevenue->fetch_assoc()) {
+        $price = $row['price'] * $row['quantity'];
+        $total += $price;
+      }
+    } else {
+      $total = 0;
+    }
+      $Total = number_format($total, 0, ',', '.');
+      $sql = "SELECT MONTH(datetime_note) AS months, SUM(order_detail.quantity) AS total_sales,SUM(order_detail.quantity*order_detail.price) AS total
+      FROM orders
+      INNER JOIN order_detail ON orders.id_order = order_detail.id_order
+      WHERE datetime_note >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+      GROUP BY MONTH(datetime_note)
+      ORDER BY MONTH(datetime_note)";
+
+$result3 = $connect->query($sql);
+    $monthLabels = array();
+    $salesData = array();
+    $sales = array();
+    while ($row = $result3->fetch_assoc()) {
+    $monthLabels[] = "Tháng " . $row['months'];
+    $salesData[] = $row['total_sales'];
+    $sales[] = $row['total'];
+}
+
+// Chuyển đổi mảng thành chuỗi JSON để sử dụng trong mã JavaScript
+$monthLabelsJSON = json_encode($monthLabels);
+$salesDataJSON = json_encode($salesData);
+$saleJSON = json_encode($sales);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,8 +123,8 @@
       </li>
       <li><a class="app-menu__item" href="table-data-oder.php"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý đơn hàng</span></a></li>
-      <li><a class="app-menu__item" href="table-data-banned.php"><i class='app-menu__icon bx bx-run'></i><span
-            class="app-menu__label">Quản lý nội bộ
+            <li><a class="app-menu__item" href="table-data-article.php"><i class='app-menu__icon bx bx-run'></i><span
+            class="app-menu__label">Quản lý bài viết
           </span></a></li>
       <li><a class="app-menu__item" href="table-data-money.php"><i class='app-menu__icon bx bx-dollar'></i><span
             class="app-menu__label">Bảng kê lương</span></a></li>
@@ -86,19 +149,12 @@
       </div>
     </div>
         <div class="row">
-            <div class="col-md-6 col-lg-3">
-                <div class="widget-small primary coloured-icon"><i class='icon  bx bxs-user fa-3x'></i>
-                    <div class="info">
-                        <h4>Tổng Nhân viên</h4>
-                        <p><b>26 nhân viên</b></p>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-md-6 col-lg-3">
                 <div class="widget-small info coloured-icon"><i class='icon bx bxs-purchase-tag-alt fa-3x' ></i>
                     <div class="info">
                         <h4>Tổng sản phẩm</h4>
-                        <p><b>8580 sản phẩm</b></p>
+                        <p><b><?php echo $resultNumberOfProduct ?> sản phẩm</b></p>
                     </div>
                 </div>
             </div>
@@ -106,33 +162,26 @@
                 <div class="widget-small warning coloured-icon"><i class='icon fa-3x bx bxs-shopping-bag-alt'></i>
                     <div class="info">
                         <h4>Tổng đơn hàng</h4>
-                        <p><b>457 đơn hàng</b></p>
+                        <p><b><?php echo $resultNumberOfOrder;?> đơn hàng</b></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
-                <div class="widget-small danger coloured-icon"><i class='icon fa-3x bx bxs-info-circle' ></i>
+                <div class="widget-small primary coloured-icon"><i class='icon fa-3x bx bxs-chart' ></i>
                     <div class="info">
-                        <h4>Bị cấm</h4>
-                        <p><b>4 nhân viên</b></p>
+                        <h4>Tổng thu nhập</h4>
+                        <p><b><?php echo $Total ." đồng" ?></b></p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-lg-3">
-                <div class="widget-small primary coloured-icon"><i class='icon fa-3x bx bxs-chart' ></i>
-                    <div class="info">
-                        <h4>Tổng thu nhập</h4>
-                        <p><b>104.890.000 đ</b></p>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-md-6 col-lg-3">
                 <div class="widget-small info coloured-icon"><i class='icon fa-3x bx bxs-user-badge' ></i>
                     <div class="info">
-                        <h4>Nhân viên mới</h4>
-                        <p><b>3 nhân viên</b></p>
+                        <h4>Sản phẩm sắp hết hàng</h4>
+                        <p><b><?php echo  $resultNumberOfProduct1 ." sản phẩm"?></b></p>
                     </div>
                 </div>
             </div>
@@ -140,15 +189,15 @@
                 <div class="widget-small warning coloured-icon"><i class='icon fa-3x bx bxs-tag-x' ></i>
                     <div class="info">
                         <h4>Hết hàng</h4>
-                        <p><b>1 sản phẩm</b></p>
+                        <p><b><?php echo $resultNumberOfProduct2." sản phẩm" ?></b></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
                 <div class="widget-small danger coloured-icon"><i class='icon fa-3x bx bxs-receipt' ></i>
                     <div class="info">
-                        <h4>Đơn hàng hủy</h4>
-                        <p><b>2 đơn hàng</b></p>
+                        <h4>Đơn hàng mới</h4>
+                        <p><b><?php echo $resultNumberOfOrder1." đơn hàng" ?></b></p>
                     </div>
                 </div>
             </div>
@@ -157,49 +206,70 @@
             <div class="col-md-12">
                 <div class="tile">
                     <div>
-                        <h3 class="tile-title">SẢN PHẨM BÁN CHẠY</h3>
+                        <h3 class="tile-title">SẢN PHẨM SẮP HẾT HÀNG</h3>
                     </div>
                     <div class="tile-body">
                         <table class="table table-hover table-bordered" id="sampleTable">
-                            <thead>
+                        <?php $count = 1; ?>     
+                        <thead>
                                 <tr>
+                                <th>STT</th>
                                     <th>Mã sản phẩm</th>
                                     <th>Tên sản phẩm</th>
+                                    <th>Ảnh</th>
+                                    <th>Số lượng</th>
+                                    <th>Tình trạng</th>
                                     <th>Giá tiền</th>
-                                    <th>Danh mục</th>
+                                    <th>Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>71309005</td>
-                                    <td>Bàn ăn gỗ Theresa</td>
-                                    <td>5.600.000 đ</td>
-                                    <td>Bàn ăn</td>
-                                </tr>
-                                <tr>
-                                    <td>62304003</td>
-                                    <td>Bàn ăn Vitali mặt đá</td>
-                                    <td>33.235.000 đ</td>
-                                    <td>Bàn ăn</td>
-                                </tr>
-                                <tr>
-                                    <td>72109004</td>
-                                    <td>Ghế làm việc Zuno</td>
-                                    <td>3.800.000 đ</td>
-                                    <td>Ghế gỗ</td>
-                                </tr>
-                                <tr>
-                                    <td>83826226</td>
-                                    <td>Tủ ly - tủ bát</td>
-                                    <td>2.450.000 đ</td>
-                                    <td>Tủ</td>
-                                </tr>
-                                <tr>
-                                    <td>71304041</td>
-                                    <td>Bàn ăn mở rộng Vegas</td>
-                                    <td>21.550.000 đ</td>
-                                    <td>Bàn thông minh</td>
-                                </tr>
+                            <?php while ($row =$resultOfProduct1->fetch_assoc()) { ?>
+            <tr>
+                <th><?= $count++ ?></th>
+                <td><?php echo $row['id_product']; ?></td>
+                <td><?php echo $row['name']; ?></td>
+                <td><img src="../../image/<?php echo $row['image1'];?>" alt="" width="150px" height="150px"></td>
+                <td><?php echo $row['quantity']; ?></td>
+                <!-- <td><span class="badge bg-success">
+                  <?php
+                    if($row['quantity']>10) echo "Còn hàng";
+                    else if($row['quantity']>0) echo "Sắp hết hàng";
+                    else echo "Hết hàng";
+                  ?>
+                  </span>
+                </td> -->
+                <td>
+    <span class="badge <?php
+        if ($row['quantity'] > 10) {
+            echo 'bg-success'; // Màu xanh lá
+        } elseif ($row['quantity'] > 0) {
+            echo 'bg-warning text-dark'; // Màu vàng
+        } else {
+            echo 'bg-danger'; // Màu đỏ
+        }
+    ?>">
+        <?php
+        if ($row['quantity'] > 10) {
+            echo "Còn hàng";
+        } elseif ($row['quantity'] > 0) {
+            echo "Sắp hết hàng";
+        } else {
+            echo "Hết hàng";
+        }
+        ?>
+    </span>
+    <td><?php echo $row['price']; ?></td>
+    <td><a href="form-delete-product.php?id_product=<?= $row['id_product']?>" class="btn btn-primary btn-sm trash"  
+                                            ><i class="fas fa-trash-alt">Xóa</i> 
+      </a>
+        <a href="form-update-product.php?id_product=<?= $row['id_product']?>" class="btn btn-primary btn-sm edit"  >
+        <i class="fas fa-edit">Sửa</i></a>
+                                       </td>
+      </td>
+
+            </tr>
+        <?php } ?>
                             </tbody>
                         </table>
                     </div>
@@ -210,68 +280,72 @@
                 <div class="col-md-12">
                     <div class="tile">
                         <div>
-                            <h3 class="tile-title">TỔNG ĐƠN HÀNG</h3>
+                            <h3 class="tile-title">SẢN PHẨM ĐÃ HẾT HÀNG</h3>
                         </div>
                         <div class="tile-body">
-                            <table class="table table-hover table-bordered" id="sampleTable">
-                                <thead>
-                                    <tr>
-                                            <th>ID đơn hàng</th>
-                                            <th>Khách hàng</th>
-                                            <th>Đơn hàng</th>
-                                            <th>Số lượng</th>
-                                            <th>Tổng tiền</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                            <td>MD0837</td>
-                                            <td>Triệu Thanh Phú</td>
-                                            <td>Ghế làm việc Zuno, Bàn ăn gỗ Theresa</td>
-                                            <td>2 sản phẩm</td>
-                                            <td>9.400.000 đ</td>
-                                    </tr>
-                                    <tr>
-                                            <td>MĐ8265</td>
-                                            <td>Nguyễn Thị Ngọc Cẩm</td>
-                                            <td>Ghế ăn gỗ Lucy màu trắng</td>
-                                            <td>1 sản phẩm</td>
-                                            <td>3.800.000 đ</td>   
-                                    </tr>
-                                    <tr>
-                                            <td>MT9835</td>
-                                            <td>Đặng Hoàng Phúc</td>
-                                            <td>Giường ngủ Jimmy, Bàn ăn mở rộng cao cấp Dolas, Ghế làm việc Zuno</td>
-                                            <td>3 sản phẩm</td>
-                                            <td>40.650.000 đ</td>
-                                    </tr>
-                                    <tr>
-                                            <td>ER3835</td>
-                                            <td>Nguyễn Thị Mỹ Yến</td>
-                                            <td>Bàn ăn mở rộng Gepa</td>
-                                            <td>1 sản phẩm</td>
-                                            <td>16.770.000 đ</td>
-                                    </tr>
-                                    <tr>
-                                            <td>AL3947</td>
-                                            <td>Phạm Thị Ngọc</td>
-                                            <td>Bàn ăn Vitali mặt đá, Ghế ăn gỗ Lucy màu trắng</td>
-                                            <td>2 sản phẩm</td>
-                                            <td>19.770.000 đ</td>
-                                    </tr>
-                                    <tr>
-                                            <td>QY8723</td>
-                                            <td>Ngô Thái An</td>
-                                            <td>Giường ngủ Kara 1.6x2m</td>
-                                            <td>1 sản phẩm</td>
-                                            <td>14.500.000 đ</td>
-                                    </tr>
-                                    <tr>
-                                       <th colspan="4">Tổng cộng:</th>
-                                        <td>104.890.000 đ</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <table class="table table-hover table-bordered" id="sampleTable">
+                        <?php $count = 1; ?>     
+                        <thead>
+                                <tr>
+                                <th>STT</th>
+                                    <th>Mã sản phẩm</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Ảnh</th>
+                                    <th>Số lượng</th>
+                                    <th>Tình trạng</th>
+                                    <th>Giá tiền</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php while ($row =$resultOfProduct2->fetch_assoc()) { ?>
+            <tr>
+                <th><?= $count++ ?></th>
+                <td><?php echo $row['id_product']; ?></td>
+                <td><?php echo $row['name']; ?></td>
+                <td><img src="../../image/<?php echo $row['image1'];?>" alt="" width="150px" height="150px"></td>
+                <td><?php echo $row['quantity']; ?></td>
+                <!-- <td><span class="badge bg-success">
+                  <?php
+                    if($row['quantity']>10) echo "Còn hàng";
+                    else if($row['quantity']>0) echo "Sắp hết hàng";
+                    else echo "Hết hàng";
+                  ?>
+                  </span>
+                </td> -->
+                <td>
+    <span class="badge <?php
+        if ($row['quantity'] > 10) {
+            echo 'bg-success'; // Màu xanh lá
+        } elseif ($row['quantity'] > 0) {
+            echo 'bg-warning text-dark'; // Màu vàng
+        } else {
+            echo 'bg-danger'; // Màu đỏ
+        }
+    ?>">
+        <?php
+        if ($row['quantity'] > 10) {
+            echo "Còn hàng";
+        } elseif ($row['quantity'] > 0) {
+            echo "Sắp hết hàng";
+        } else {
+            echo "Hết hàng";
+        }
+        ?>
+    </span>
+    <td><?php echo $row['price']; ?></td>
+    <td><a href="form-delete-product.php?id_product=<?= $row['id_product']?>" class="btn btn-primary btn-sm trash"  
+                                            ><i class="fas fa-trash-alt">Xóa</i> 
+      </a>
+        <a href="form-update-product.php?id_product=<?= $row['id_product']?>" class="btn btn-primary btn-sm edit"  >
+        <i class="fas fa-edit">Sửa</i></a>
+                                       </td>
+      </td>
+
+            </tr>
+        <?php } ?>
+                            </tbody>
+                        </table>
                         </div>
                     </div>
                 </div>
@@ -280,7 +354,7 @@
                 <div class="col-md-12">
                     <div class="tile">
                         <div>
-                            <h3 class="tile-title">SẢN PHẨM ĐÃ HẾT</h3>
+                            <h3 class="tile-title">DƠN HÀNG MỚI</h3>
                         </div>
                         <div class="tile-body">
                             <table class="table table-hover table-bordered" id="sampleTable">
@@ -297,13 +371,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                            <td>83826226</td>
-                                            <td>Tủ ly - tủ bát</td>
-                                            <td><img src="/img-sanpham/tu.jpg" alt="" width="100px;"></td>
-                                            <td>0</td>
-                                            <td><span class="badge bg-danger">Hết hàng</span></td>
-                                            <td>2.450.000 đ</td>
-                                            <td>Tủ</td>
+                                            
                                     </tr>
                                 </tbody>
                             </table>
@@ -311,55 +379,7 @@
                     </div>
                 </div>
             </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="tile">
-                    <div>
-                        <h3 class="tile-title">NHÂN VIÊN MỚI</h3>
-                    </div>
-                    <div class="tile-body">
-                        <table class="table table-hover table-bordered" id="sampleTable">
-                            <thead>
-                                <tr>
-                                    <th>Họ và tên</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Ngày sinh</th>
-                                    <th>Giới tính</th>
-                                    <th>SĐT</th>
-                                    <th>Chức vụ</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Hồ Thị Thanh Ngân</td>
-                                    <td>155-157 Trần Quốc Thảo, Quận 3, Hồ Chí Minh </td>
-                                    <td>12/02/1999</td>
-                                    <td>Nữ</td>
-                                    <td>0926737168</td>
-                                    <td>Bán hàng</td>
-                                </tr>
-                                <tr>
-                                    <td>Trần Khả Ái</td>
-                                    <td>6 Nguyễn Lương Bằng, Tân Phú, Quận 7, Hồ Chí Minh</td>
-                                    <td>22/12/1999</td>
-                                    <td>Nữ</td>
-                                    <td>0931342432</td>
-                                    <td>Bán hàng</td>
-                                </tr>
-                                <tr>
-                                    <td>Nguyễn Đặng Trọng Nhân</td>
-                                    <td>59C Nguyễn Đình Chiểu, Quận 3, Hồ Chí Minh </td>
-                                    <td>23/07/1996</td>
-                                    <td>Nam</td>
-                                    <td>0846881155</td>
-                                    <td>Dịch vụ</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <div class="row">
             <div class="col-md-6">
                 <div class="tile">
@@ -379,9 +399,7 @@
             </div>
         </div>
 
-        <div class="text-right" style="font-size: 12px">
-            <p><b>Hệ thống quản lý V2.0 | Code by Trường</b></p>
-        </div>
+        
     </main>
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.2.1.min.js"></script>
@@ -394,7 +412,7 @@
     <script type="text/javascript" src="js/plugins/chart.js"></script>
     <script type="text/javascript">
     var data = {
-      labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+      labels: <?php echo $monthLabelsJSON; ?>,
       datasets: [{
           label: "Dữ liệu đầu tiên",
           fillColor: "rgba(255, 255, 255, 0.158)",
@@ -403,7 +421,7 @@
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "green",
-          data: [20, 59, 90, 51, 56, 100, 40, 60, 78, 53, 33, 81]
+          data:  <?php echo $salesDataJSON; ?>
         },
         {
           label: "Dữ liệu kế tiếp",
@@ -413,7 +431,7 @@
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "green",
-          data: [48, 48, 49, 39, 86, 10, 50, 70, 60, 70, 75, 90]
+          data: <?php echo $saleJSON; ?>
         }
       ]
     };
