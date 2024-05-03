@@ -188,7 +188,7 @@ $saleJSON = json_encode($sales);
           </div>
            <!-- col-6 -->
            <div class="col-md-6">
-        <div class="widget-small primary coloured-icon"><i class='icon bx bxs-user-account fa-3x'></i>
+        <div class="widget-small primary coloured-icon"><i class='icon fa-3x bx bxs-chart'></i>
           <div class="info">
             <h4>Doanh thu</h4>
             <p><b><?php echo $Total ." đồng" ?></b></p>
