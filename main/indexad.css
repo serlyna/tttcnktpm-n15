@@ -1,0 +1,51 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.banner{
+    width: 90%;
+    margin-top: 20px;
+    height: 300px;
+    margin-left: 65px;
+    margin-bottom: 150px;
+}
+
+.banner img{
+    width: 100%;
+    height: 200px;
+}
+
+.wc{
+    height: 150px;
+    background: linear-gradient(#f46523, #FACC2E);
+    margin-top: 40px;
+    border: 1px solid #000;
+    border-radius: 20px;
+}
+
+.wc h1{
+    margin-left: 500px;
+    margin-top: 50px;
+    color: #0B0B3B;
+}
+
+
+/*.left-menu{
+    width: 250px;
+}
+
+.menu{
+    margin-bottom: 50px;
+}*/
+
+/*.noidung{
+    display: flex;
+    margin: 0px 50px;
+    margin-bottom: 20px;
+}
+
+.homepage{
+    margin-top: 20px;
+    margin-left: 10px;
+}*/

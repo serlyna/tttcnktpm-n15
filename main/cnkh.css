@@ -1,0 +1,31 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.cnkh{
+    height: 245px;
+    border: 1px solid #f46523;
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cnkh a{
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+}
+
+.cnkh-item{
+    height: 40px;
+    border-bottom:1px solid #f46523;
+    list-style: none;
+    line-height: 40px;
+}
+
+.cnkh-item:hover{
+    background: #FE9A2E;
+    color: #fff;
+}
+

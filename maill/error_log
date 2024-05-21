@@ -1,0 +1,215 @@
+[14-May-2022 16:44:56 UTC] PHP Warning:  include(PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 16:44:56 UTC] PHP Warning:  include(): Failed opening 'PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 16:44:56 UTC] PHP Warning:  include(PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 16:44:56 UTC] PHP Warning:  include(): Failed opening 'PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 16:44:56 UTC] PHP Warning:  include(PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 16:44:56 UTC] PHP Warning:  include(): Failed opening 'PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 16:44:56 UTC] PHP Warning:  include(PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 16:44:56 UTC] PHP Warning:  include(): Failed opening 'PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 16:44:56 UTC] PHP Warning:  include(PHPMailer/src/SMTP.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 16:44:56 UTC] PHP Warning:  include(): Failed opening 'PHPMailer/src/SMTP.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 16:44:56 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
+[14-May-2022 16:44:58 UTC] PHP Warning:  include(PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 16:44:58 UTC] PHP Warning:  include(): Failed opening 'PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 16:44:58 UTC] PHP Warning:  include(PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 16:44:58 UTC] PHP Warning:  include(): Failed opening 'PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 16:44:58 UTC] PHP Warning:  include(PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 16:44:58 UTC] PHP Warning:  include(): Failed opening 'PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 16:44:58 UTC] PHP Warning:  include(PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 16:44:58 UTC] PHP Warning:  include(): Failed opening 'PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 16:44:58 UTC] PHP Warning:  include(PHPMailer/src/SMTP.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 16:44:58 UTC] PHP Warning:  include(): Failed opening 'PHPMailer/src/SMTP.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 16:44:58 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
+[14-May-2022 16:46:03 UTC] PHP Fatal error:  Interface 'PHPMailer\PHPMailer\OAuthTokenProvider' not found in /home/lagezrwa/public_html/maill/PHPMailer/src/OAuth.php on line 36
+[14-May-2022 16:46:09 UTC] PHP Fatal error:  Interface 'PHPMailer\PHPMailer\OAuthTokenProvider' not found in /home/lagezrwa/public_html/maill/PHPMailer/src/OAuth.php on line 36
+[14-May-2022 16:50:58 UTC] PHP Fatal error:  Interface 'PHPMailer\PHPMailer\OAuthTokenProvider' not found in /home/lagezrwa/public_html/maill/PHPMailer/src/OAuth.php on line 36
+[14-May-2022 16:51:00 UTC] PHP Fatal error:  Interface 'PHPMailer\PHPMailer\OAuthTokenProvider' not found in /home/lagezrwa/public_html/maill/PHPMailer/src/OAuth.php on line 36
+[14-May-2022 16:52:59 UTC] PHP Fatal error:  Interface 'PHPMailer\PHPMailer\OAuthTokenProvider' not found in /home/lagezrwa/public_html/maill/PHPMailer-master/src/OAuth.php on line 36
+[14-May-2022 16:53:15 UTC] PHP Fatal error:  Interface 'PHPMailer\PHPMailer\OAuthTokenProvider' not found in /home/lagezrwa/public_html/maill/PHPMailer-master/src/OAuth.php on line 36
+[14-May-2022 16:53:15 UTC] PHP Fatal error:  Interface 'PHPMailer\PHPMailer\OAuthTokenProvider' not found in /home/lagezrwa/public_html/maill/PHPMailer-master/src/OAuth.php on line 36
+[14-May-2022 16:53:15 UTC] PHP Fatal error:  Interface 'PHPMailer\PHPMailer\OAuthTokenProvider' not found in /home/lagezrwa/public_html/maill/PHPMailer-master/src/OAuth.php on line 36
+[14-May-2022 16:53:16 UTC] PHP Fatal error:  Interface 'PHPMailer\PHPMailer\OAuthTokenProvider' not found in /home/lagezrwa/public_html/maill/PHPMailer-master/src/OAuth.php on line 36
+[14-May-2022 17:18:05 UTC] PHP Warning:  include(../PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:05 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:05 UTC] PHP Warning:  include(../PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:05 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:05 UTC] PHP Warning:  include(../PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:05 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:05 UTC] PHP Warning:  include(../PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:05 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:05 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
+[14-May-2022 17:18:06 UTC] PHP Warning:  include(../PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:06 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:06 UTC] PHP Warning:  include(../PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:06 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:06 UTC] PHP Warning:  include(../PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:06 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:06 UTC] PHP Warning:  include(../PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:06 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:06 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
+[14-May-2022 17:18:29 UTC] PHP Warning:  include(../PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:29 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:29 UTC] PHP Warning:  include(../PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:29 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:29 UTC] PHP Warning:  include(../PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:29 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:29 UTC] PHP Warning:  include(../PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:29 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:29 UTC] PHP Warning:  include(../PHPMailer/src/SMTP.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:18:29 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/SMTP.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:18:29 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(../PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(../PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(../PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(../PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(../PHPMailer/src/SMTP.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/SMTP.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:18:30 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(../PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(../PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(../PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(../PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(../PHPMailer/src/SMTP.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:18:30 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/SMTP.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:18:30 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
+[14-May-2022 17:18:31 UTC] PHP Warning:  include(../PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:31 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:31 UTC] PHP Warning:  include(../PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:31 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:31 UTC] PHP Warning:  include(../PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:31 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:31 UTC] PHP Warning:  include(../PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:31 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:31 UTC] PHP Warning:  include(../PHPMailer/src/SMTP.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:18:31 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/SMTP.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:18:31 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(../PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(../PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(../PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(../PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(../PHPMailer/src/SMTP.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/SMTP.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:18:32 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(../PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(../PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(../PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(../PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(../PHPMailer/src/SMTP.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:18:32 UTC] PHP Warning:  include(): Failed opening '../PHPMailer/src/SMTP.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:18:32 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
+[14-May-2022 17:26:34 UTC] PHP Warning:  include(maill/PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:26:34 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:26:34 UTC] PHP Warning:  include(maill/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:26:34 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:26:34 UTC] PHP Warning:  include(maill/PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:26:34 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:26:34 UTC] PHP Warning:  include(maill/PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:26:34 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:26:34 UTC] PHP Warning:  include(maill/PHPMailer/src/SMTP.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:26:34 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/SMTP.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:26:34 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
+[14-May-2022 17:26:35 UTC] PHP Warning:  include(maill/PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:26:35 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:26:35 UTC] PHP Warning:  include(maill/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:26:35 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:26:35 UTC] PHP Warning:  include(maill/PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:26:35 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:26:35 UTC] PHP Warning:  include(maill/PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:26:35 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:26:35 UTC] PHP Warning:  include(maill/PHPMailer/src/SMTP.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:26:35 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/SMTP.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:26:35 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(maill/PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(maill/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(maill/PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(maill/PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(maill/PHPMailer/src/SMTP.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/SMTP.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:26:36 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(maill/PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(maill/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(maill/PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(maill/PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(maill/PHPMailer/src/SMTP.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:26:36 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/SMTP.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:26:36 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
+[14-May-2022 17:26:37 UTC] PHP Warning:  include(maill/PHPMailer/src/PHPMailer.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:26:37 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/PHPMailer.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 3
+[14-May-2022 17:26:37 UTC] PHP Warning:  include(maill/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:26:37 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/Exception.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 4
+[14-May-2022 17:26:37 UTC] PHP Warning:  include(maill/PHPMailer/src/OAuth.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:26:37 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/OAuth.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 5
+[14-May-2022 17:26:37 UTC] PHP Warning:  include(maill/PHPMailer/src/POP3.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:26:37 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/POP3.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 6
+[14-May-2022 17:26:37 UTC] PHP Warning:  include(maill/PHPMailer/src/SMTP.php): failed to open stream: No such file or directory in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:26:37 UTC] PHP Warning:  include(): Failed opening 'maill/PHPMailer/src/SMTP.php' for inclusion (include_path='.:/opt/alt/php70/usr/share/pear') in /home/lagezrwa/public_html/maill/sendmail.php on line 7
+[14-May-2022 17:26:37 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer\PHPMailer\PHPMailer' not found in /home/lagezrwa/public_html/maill/sendmail.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/lagezrwa/public_html/maill/sendmail.php on line 11
