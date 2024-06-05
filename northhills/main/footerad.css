@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.ft{
+    width: 100%;
+    height: 200px;
+    background: #070719;
+}
+
+.ft h2{
+    color: #fff;
+    margin-left: 420px;
+    margin-top: 20px;
+}
+
+.ft h3{
+    color: #fff;
+    margin-left: 450px;
+    padding-top: 70px;
+}

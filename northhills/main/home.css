@@ -1,0 +1,112 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.noibat{
+    margin-top: 40px;
+    background: #F2F2F2;
+}
+
+.bangspnb{
+    width: 95%;
+    cellspacing:0;
+    height: 400px;
+  
+    margin-left: 30px;
+    background: #FAFAFA;
+}
+
+.spnoibat{
+    margin-bottom: 10px;
+    text-align: center;
+    color: red;
+    
+    font-size: 30px;
+}
+
+.cotspnoibat{
+    valign: top;
+    width:350px;
+    padding:5px;
+}
+
+.cotspnoibat a{
+    text-decoration: none;
+    color: #5f0afc;
+    font-family:times;
+  
+  
+}
+
+.cotspnoibat a:hover{
+    color: #0101DF;
+}
+
+.cotspnoibat img{
+    margin-left: 2px;
+    margin-bottom: 5px;
+}
+
+.cotspnoibat p{
+    color:red;
+    font-family:times;
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+.btspnoibat{
+    width: 200px;
+    height: 35px;
+    background: #3cb1d4;
+    border:none;
+    margin-left: 425px;
+    margin-top: 10px;
+    border-radius: 15px;
+    color: #FAFAFA;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+.active {
+  background-color: #717171;
+}

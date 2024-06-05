@@ -1,0 +1,89 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.bangspnb{
+    width: 80%;
+    cellspacing:0;
+    height: 200px;
+    margin-left: 100px;
+    background: #FAFAFA;
+    margin-bottom: 20px;
+}
+
+.spnoibat{
+    margin-bottom: 10px;
+    text-align: center;
+    color: #f46523;
+    font-size: 30px;
+}
+
+.cotspnoibat{
+    valign: top;
+    width:20%;
+}
+
+.cotspnoibat a{
+    text-decoration: none;
+    color: #2E2E2E;
+}
+
+.cotspnoibat a:hover{
+    color: #0101DF;
+}
+
+.cotspnoibat img{
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+.cotspnoibat p{
+    color:#f46523;
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+.btspnoibat{
+    width: 140px;
+    height: 35px;
+    background: #f46523;
+    border:none;
+    margin-left: 450px;
+    margin-top: 10px;
+    border-radius: 15px;
+    color: #FAFAFA;
+}
+
+.page{
+    display: flex;
+    height: 40px;
+    justify-content:center;
+}
+
+.page-item{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    min-width: 40px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #BDBDBD;
+}
+
+.page-item:hover{
+    background: #f46523;
+}
+
+.curren-page{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    min-width: 40px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #BDBDBD;
+    background: #000;
+}

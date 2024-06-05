@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.ft{
+    width: 100%;
+    background: #070719;
+    display: flex;
+}
+
+.thongtin{
+    width: 10%;
+    height: 300px;;
+    color: #fff;
+    padding: 70px 100px 0 70px;
+}
+
+.thongtin p{
+    font-size: 24px;
+}
+
+.thongtin a{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-top: 5px;
+}
+
+.list{
+    width: 200px;
+    list-style: none;
+    margin-top:10px; 
+}
+
+.item{
+    margin-top: 10px;
+}
+
+.chinhsach{
+    width: 10%;
+    height: 300px;;
+    color: #fff;
+    padding-right: 100px;
+    padding-top: 70px;
+}
+
+.chinhsach p{
+    font-size: 24px;
+}
+
+.chinhsach a{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-top: 5px;
+}
+
+.hotro{
+    width: 10%;
+    height: 300px;;
+    color: #fff;
+    padding-top: 70px;
+    padding-right: 100px;
+}
+
+.hotro p{
+    font-size: 24px;
+}
+
+.hotro a{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-top: 5px;
+}
+
+.lienhe{
+    width: 10%;
+    height: 300px;;
+    color: #fff;
+    padding-top: 70px;
+    padding-right: 100px;
+}
+
+.lienhe p{
+    font-size: 24px;
+}
+
+.lienhe a{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-top: 5px;
+}
+
+
+
+

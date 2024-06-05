@@ -1,0 +1,42 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.left-menu{
+    width: 250px;
+}
+
+.noidung{
+    display: flex;
+    margin: 0px 50px;
+    margin-bottom: 20px;
+}
+
+.homepage{
+    width: 800px;
+    margin-top: 40px;
+    margin-left: 100px;
+}
+
+.name{
+    color: #f46523;
+    margin-left: 120px;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.menu{
+    margin-bottom: 50px;
+}
+
+.btgh{
+    width: 140px;
+    height: 35px;
+    background: #f46523;
+    border:none;
+    margin-left: 330px;
+    margin-top: 10px;
+    border-radius: 15px;
+    color: #FAFAFA;
+}
